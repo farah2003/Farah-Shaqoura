@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Farah Shaqoura</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light Slate 50 */
+            color: #334155; /* Slate 700 */
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 70%;
+            height: 4px;
+            background-color: #f472b6; /* Pink 400 */
+            border-radius: 9999px; /* Full rounded */
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        /* Default skill badge (can be overridden by specific colors) */
+        .skill-badge {
+            padding: 0.5rem 0.5rem;
+            border-radius: 9999px; /* full rounded */
+            font-weight: 600;
+            font-size: 0.875rem; /* text-sm */
+            display: inline-block; /* Ensure padding and margin work correctly */
+        }
+        /* Specific skill badge colors */
+        .skill-badge-pink {
+            background-color: #fce7f3; /* Pink 100 */
+            color: #db2777; /* Pink 600 */
+        }
+        .skill-badge-blue {
+            background-color: #e0f2fe; /* Light Blue 100 */
+            color: #2563eb; /* Blue 600 */
+        }
+        .skill-badge-green {
+            background-color: #dcfce7; /* Light Green 100 */
+            color: #16a34a; /* Green 600 */
+        }
+        .skill-badge-purple {
+            background-color: #ede9fe; /* Light Purple 100 */
+            color: #7c3aed; /* Purple 600 */
+        }
+        .skill-badge-yellow {
+            background-color: #fffbeb; /* Light Yellow 100 */
+            color: #d97706; /* Yellow 600 */
+        }
+        .project-image {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+
+        /* Custom Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes typing {
+            from {
+                max-width: 0; /* Start with no width */
+            }
+            to {
+                max-width: 100%; /* Expand to full width */
+            }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.3s; /* Delay for a staggered effect */
+        }
+
+        .animate-typing {
+            overflow: hidden; /* Ensures the text is hidden until typed */
+            white-space: nowrap; /* Keeps text on a single line */
+            border-right: 3px solid white; /* The blinking caret */
+            margin: 0 auto; /* Center the h1 element itself */
+            animation:
+                typing 3.5s steps(30, end) forwards, /* Adjust steps based on text length */
+                blink-caret .75s step-end infinite;
+        }
+    </style>
+</head>
+<body class="antialiased leading-normal tracking-wide">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-pink-500 to-purple-600 text-white py-32 px-4 sm:px-6 lg:px-8 shadow-lg">
+        <div class="max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
+            <div class="mb-8 md:mb-0">
+                <!-- The h1 tag now has the typing animation -->
+                <h1 class="text-5xl font-extrabold mb-4 animate-typing">Hi, I'm Farah Shaqoura!</h1>
+                <p class="text-xl font-light opacity-90 animate-fade-in-up">A passionate Software Developer building user friendly and functional web experiences.</p>
+                <div class="mt-8">
+                    <a href="#projects" class="inline-block bg-white text-purple-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 ease-in-out transform hover:scale-105">View My Work</a>
+                    <a href="#contact" class="inline-block ml-4 text-white border-2 border-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-purple-600 transition duration-300 ease-in-out transform hover:scale-105">Get in Touch</a>
+                </div>
+            </div>
+            <!-- Profile picture div removed -->
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+
+        <!-- About Me Section -->
+        <section id="about" class="mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 section-title">About Me</h2>
+            <div class="bg-white p-8 rounded-xl shadow-md text-lg leading-relaxed">
+                <p class="mb-4">Hello! I'm Farah, a dedicated and enthusiastic software developer with a strong foundation in web development. My journey into the world of technology began by building games using Scratch.</p>
+                <p class="mb-4">I thrive on learning new technologies and am always eager to take on challenging projects that push my boundaries. My goal is to build efficient and scalable software that makes a real difference. </p>
+                <p> Outside of coding, I enjoy listening to podcasts, audiobooks, and watching stunning sunsets over water, which helps me stay creative and balanced. </p>
+            </div>
+        </section>
+
+        <!-- Study Section -->
+        <section id="study" class="mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 section-title">My Academic Journey</h2>
+            <div class="grid grid-cols-1 gap-8">
+                  <div class="card p-6">
+                   <h3 class="text-2xl font-semibold text-purple-700 mb-2"> <a href="https://www.codedotx.org/code-for-palestine" target="_blank" rel="noopener noreferrer">
+    Code for Palestine
+  </a> <h3>
+                    <p class="text-gray-600 mb-1"><strong>  Code x organization</strong></p>
+                         <p class="text-gray-500 text-sm mb-4"> June 2019 – June 2022</p>
+                    <p class="text-gray-700">   A 24-month program with weekly sessions and three overnight summer camps, designed for top high school students and mentored by prominent engineers. The program focused on Python programming fundamentals, introductory web development, and design thinking. I gained hands-on experience building user-empathic web applications.</p>
+        
+
+                   
+                </div>
+                  <div class="grid  gap-8">
+                  <div class="card p-6">
+                   <h3 class="text-2xl font-semibold text-purple-700 mb-2">
+                    <a href=" https://www.credly.com/badges/9a7aa196-d162-4f0d-9272-4c39745ff041/public_url" target="_blank" rel="noopener noreferrer">
+   AWS restart program
+  </a>
+                    <h3>
+                       
+                    <p class="text-gray-600 mb-1"><strong>   <a href="https://www.codedotx.org/code-for-palestine" target="_blank" rel="noopener noreferrer"></a>  Amazon web services</strong></p>
+                         <p class="text-gray-500 text-sm mb-4">March 2023 – June 2023 </p>
+                    <p class="text-gray-700">Focused on basic concepts of cloud computing, security and networking . Gained hands-on experience in various AWS service categories include computing, storage, networking, and database services.</p>
+        
+
+                   
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-2">Computer system engineering <h3>
+                    <p class="text-gray-600 mb-1"><strong>  Al-Azhar university -Gaza</strong></p>
+                    <p class="text-gray-500 text-sm mb-4">October 2021 – current</p>
+                    <p class="text-gray-700">Focused on OOP, algorithms, data structures, software engineering. Gained hands-on experience in various project development methodologies.</p>
+                  </div>
+               
+              
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 section-title">Certifications</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-2"> <a href="https://www.credly.com/badges/70a990a4-dbb7-4e81-b898-072ba94db72a/linked_in_profile" target="_blank" rel="noopener noreferrer">
+
+  </a>AWS Cloud Practitioner</h3>
+                
+                    <p class="text-gray-600 mb-1"><strong>Amzon web service</strong></p>
+                    <p class="text-gray-500 text-sm mb-4">2023</p>
+                    <p class="text-gray-700">Demonstrated proficiency in  using AWS services.</p>
+                </div>
+                <div class="card p-6">
+                    
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-2">  <a href="https://drive.google.com/file/d/14FClaCHetueyWnNUFmQTtLzSsi5Rdwt5/view" target="_blank" rel="noopener noreferrer">
+Semifinals in Techonvation girl compeition
+  </a>  </h3>
+                    <p class="text-gray-600 mb-1"><strong>Techonvation girl</strong></p>
+                    <p class="text-gray-500 text-sm mb-4">2020</p>
+                    <p class="text-gray-700">Developing an app to provide financial support to female artists</p>
+                </div>
+            
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 section-title">My Skills</h2>
+            <div class="bg-white p-8 rounded-xl shadow-md">
+                <h3 class="text-2xl font-semibold text-purple-700 mb-4">Programming Languages</h3>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="skill-badge skill-badge-pink">Python</span>
+                    <span class="skill-badge skill-badge-pink">JavaScript (ES6+)</span>
+                    <span class="skill-badge skill-badge-pink">Java</span>
+                    <span class="skill-badge skill-badge-pink">C++</span>
+                    <span class="skill-badge skill-badge-pink">SQL</span>
+                    <span class="skill-badge skill-badge-pink">HTML5</span>
+                    <span class="skill-badge skill-badge-pink">CSS3</span>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-purple-700 mb-4">Frameworks & Libraries</h3>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="skill-badge skill-badge-blue">React.js</span>
+                    <span class="skill-badge skill-badge-blue">Node.js</span>
+                    <span class="skill-badge skill-badge-blue">Express.js</span>
+                    <span class="skill-badge skill-badge-blue">Spring</span>
+                    <span class="skill-badge skill-badge-blue">Tailwind CSS</span>
+                    <span class="skill-badge skill-badge-blue">Bootstrap</span>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-purple-700 mb-4">Databases</h3>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="skill-badge skill-badge-green">PostgreSQL</span>
+                    <span class="skill-badge skill-badge-green">MongoDB</span>
+                    <span class="skill-badge skill-badge-green">MySQL</span>
+                    <span class="skill-badge skill-badge-green">Firebase Firestore</span>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-purple-700 mb-4">Tools & Platforms</h3>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="skill-badge skill-badge-purple">Git & GitHub</span>
+                    <span class="skill-badge skill-badge-purple">VS Code</span>
+                    <span class="skill-badge skill-badge-purple">Docker</span>
+                    <span class="skill-badge skill-badge-purple">AWS (S3, EC2 - basic)</span>
+                    <span class="skill-badge skill-badge-purple">Heroku</span>
+                    <span class="skill-badge skill-badge-purple">Jira / Trello</span>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-purple-700 mb-4">Concepts & Methodologies</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="skill-badge skill-badge-yellow">RESTful APIs</span>
+                    <span class="skill-badge skill-badge-yellow">Object-Oriented Design (OOD)</span>
+                    <span class="skill-badge skill-badge-yellow">Agile Development</span>
+                    <span class="skill-badge skill-badge-yellow">Responsive Design</span>
+                    <span class="skill-badge skill-badge-yellow">Version Control</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 section-title">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card">
+                    <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Project+1" alt="Project 1 Image" class="project-image">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-purple-700 mb-2">Makani</h3>
+                        <p class="text-gray-700 mb-4">a geographic addressing system used across several United Arab Emirates, providing a unique 10-digit code for each building entrance to facilitate efficient navigation.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-badge">React</span>
+                            <span class="skill-badge">Google map API</span>
+                            <span class="skill-badge">Tailwind CSS</span>
+                        </div>
+                        <a href="https://makani.hashinclu.de/" class="text-pink-500 hover:underline font-semibold" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card">
+                    <img  src="images/project2.png"  alt="Project 2 Image" class="project-image">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-purple-700 mb-2">Testmate Health Admin panel </h3>
+                        <p class="text-gray-700 mb-4">high-performance dashboard  for   <a href="https://www.linkedin.com/company/testmatehealth/posts/?feedView=all" class="hover:underline font-semibold" target="_blank" rel="noopener noreferrer">Testmate Health</a>  start up that enables the management of an app and displays analytics</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-badge">Node js</span>
+                            <span class="skill-badge">React</span>
+                            <span class="skill-badge">PostgreSQL</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/12f2G2L_9y70k4CcKUPzjv2kKOR0dSwoP" class="text-pink-500 hover:underline font-semibold" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card">
+                     <img src="images/project3.png" alt="Project 2 Image"   class="project-image">
+              
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-purple-700 mb-2">Astral</h3>
+                        <p class="text-gray-700 mb-4"> Collaborated on developing a highly responsive Autonomous Drone fleet platform</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-badge">Next js</span>
+                            <span class="skill-badge">AWS Cognito</span>
+                            <span class="skill-badge">AWS EC2</span>
+                    
+                        </div>
+                        <a href="https://astral.us/" class="text-pink-500 hover:underline font-semibold" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
+                    </div>
+                </div>
+                <!-- Add more projects as needed following the same structure -->
+            </div>
+        </section>
+
+        <!-- Extracurricular Activities Section -->
+        <section id="extracurricular" class="mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 section-title">Extracurricular Activities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                 <div class="card p-6">
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-2">Technovation girls</h3>
+                    <p class="text-gray-600 mb-1"><strong>Technical volunteer mentor</strong></p>
+                    <p class="text-gray-500 text-sm mb-4">2025</p>
+                    <p class="text-gray-700"> Lead a group of four girls to develop an mental health support app using App inventor</p>
+                </div>
+            
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-2">Coding Club - Founder</h3>
+                    <p class="text-gray-600 mb-1"><strong>My high school, Awni Al-Harthani School</strong></p>
+                    <p class="text-gray-500 text-sm mb-4">2020 – 2021</p>
+                    <p class="text-gray-700"> led various coding challenges. Collaborated on projects about COVID-19.</p>
+                </div>
+                <!-- Add more activities as needed -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-16 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 section-title mx-auto">Get in Touch</h2>
+            <div class="bg-white p-8 rounded-xl shadow-md max-w-2xl mx-auto">
+                <p class="text-lg text-gray-700 mb-6">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="mailto:farah.shaqoura@example.com" class="inline-block bg-pink-500 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-pink-600 transition duration-300 ease-in-out transform hover:scale-105">Email Me</a>
+                    <a href="https://www.linkedin.com/in/farah-shaqoura-0a75911a9/" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105">LinkedIn</a>
+                    <a href="https://github.com/farah2003" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-800 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 ease-in-out transform hover:scale-105">GitHub</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8 px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto">
+            <p>&copy; <span id="current-year"></span> Farah Shaqoura. All rights reserved.</p>
+            <!-- <p class="text-sm mt-2">Built with ❤️ and Tailwind CSS.</p> -->
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
